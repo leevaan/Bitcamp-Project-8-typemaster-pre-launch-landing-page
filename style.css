@@ -51,12 +51,14 @@ body{
 .body-helper{
     margin: 0 auto;
     max-width: 1440px;
+   
 }
       
 header{
-    /* display: flex; */
- /*  11.459% === 165px for (1440 width)*/
-   margin: 70px 11.459% 30px 11.459%;
+   /*  11.459% === 165px for (1440 width)*/
+   /* margin: 70px 11.459% 30px 11.459%; */
+   margin: 70px clamp(1.5rem, -1.603rem + 13.2394vw, 10.3125rem) 30px 
+                clamp(1.5rem, -1.603rem + 13.2394vw, 10.3125rem);
    height: auto;
 }
 .header-up-box{
@@ -146,9 +148,9 @@ button{
 }
 .header-down-left-box-child-desktop-img, 
 .header-down-left-box-child-tablet-img{
-    /* max-width: 100%; */
+    /* width: 540px; */
     /* width: 37.5%; */
-    width: clamp(23.6875rem, 1.4063rem + 35.9375vw, 33.75rem);
+    width: clamp(20.75rem, -0.9167rem + 38.5185vw, 33.75rem);
     height: auto;
     /* height: 480px; */
 
@@ -179,11 +181,10 @@ main{
 
     display: flex;
     justify-content: space-between;
-    margin: 0px 11.459% 168px 11.459%;
-    /* margin: 0 auto;
+    /* margin: 0px 11.459% 168px 11.459%; */
+    margin: 0px clamp(1.5rem, -1.603rem + 13.2394vw, 10.3125rem) 168px 
+                clamp(1.5rem, -1.603rem + 13.2394vw, 10.3125rem);
 
-    max-width: 1440px;
-    height: auto; */
 }
 
 .image-phone-and-keyboard{
@@ -248,7 +249,9 @@ main{
     justify-content: space-between;
     flex-wrap: wrap;
 
-    margin: 0px 11.459% 168px 11.459%
+    /* margin: 0px 11.459% 168px 11.459%; */
+    margin: 0px clamp(1.5rem, -1.603rem + 13.2394vw, 10.3125rem) 168px 
+                clamp(1.5rem, -1.603rem + 13.2394vw, 10.3125rem);
 }
 .section-down-child{
     width: 20.271%;
@@ -303,7 +306,9 @@ main{
     justify-content: space-between;
     
     padding: 0;
-    margin: 72px  11.459% 142px  11.459%;
+    /* margin: 72px  11.459% 142px  11.459%; */
+    margin: 72px  clamp(1.5rem, -1.603rem + 13.2394vw, 10.3125rem) 142px  
+                  clamp(1.5rem, -1.603rem + 13.2394vw, 10.3125rem);
    }
   .section-up-content-tablet p{
     width: 72.17%;
@@ -335,6 +340,9 @@ main{
    }
 } 
 @media only screen and (max-width: 900px) {
+    .body-helper{
+        overflow: hidden;
+    }
     .section-up{
         margin-bottom: 87px;
     }
@@ -367,13 +375,14 @@ main{
 }
 @media only screen and (max-width: 713px){
     .header-down-left-box{
-        margin: 70px 11.459% 30px 11.459%;
-    }
-    .header-down-left-box-child-tablet-img{
-        display: none;
-    }
-    .header-down-left-box-up{
+        align-items: center;
         justify-content: center;
+        
+    }
+    /* .header-down-left-box-child-tablet-img{
+        display: none;
+    } */
+    .header-down-left-box-up{
         align-items: center;
 
         margin-right: 0;
@@ -384,15 +393,14 @@ main{
     .header-down-left-box-up p{
         min-width: 100%;
     }
-    .header-down-left-box-child{
-        width: 100%;
-    }
-    .header-down-left-box-child-mobile-img{
+    
+    .header-down-left-box-child-tablet-img{
         position: relative;
-        right: -140px;
+        left: 0;
         display: inline-block;
-        width: 372px;
-        height: 331px;
+        width: 100%;
+        height: auto;
+        height: 331px; 
 
         border-radius: 20px;
     }
@@ -401,17 +409,12 @@ main{
        
     }
 }
-@media only screen and (max-width: 545px){
-   
-    .header-down-left-box-child{
-        flex-direction: column;
-          }
-    .header-down-left-box-child span{
-        margin-left: 0;
-        margin-top: 25px;
+
+@media only screen and (max-width: 448px) {
+    .header-down-left-box-child-tablet-img{
+        width: 448px;
+        left: 60px;
     }
-}
-@media only screen and (max-width: 450px) {
     .section-up{
         margin-left: -30px;
     }
@@ -428,8 +431,37 @@ main{
         display: inline-block;
         width: 70%;
     }
-   
+    .header-down-left-box-child span{
+        margin-left: 30px;
+    }
+       
  }
+ @media only screen and (max-width: 372px){
+    .header-down-left-box-child-tablet-img{
+        display: none;
+    }
+    .header-down-left-box-child-mobile-img{
+        position: relative;
+        display: inline-block;
+
+        height: auto;
+        width: 372px;
+
+        left: 60px;
+
+        border-radius: 20px;
+    }
+}
+@media only screen and (max-width: 370px){
+   
+    .header-down-left-box-child{
+        flex-direction: column;
+          }
+    .header-down-left-box-child span{
+        margin-left: 0;
+        margin-top: 25px;
+    }
+}
  @media only screen and (max-width: 275px){
     .header-up-box{
         flex-direction: column;
@@ -437,5 +469,8 @@ main{
     }
     .header-up-box img{
         margin-bottom: 20px;
+    }
+    .header-down-left-box-child-mobile-img{
+        left: 70px;
     }
 }
